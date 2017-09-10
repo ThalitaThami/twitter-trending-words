@@ -7,7 +7,10 @@ package scanner;
 
 import java.io.*;
 import java.math.BigInteger;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.*;
+import java.util.stream.Stream;
 
 /**
  *
@@ -25,18 +28,14 @@ public class scannerfile {
         
               
         Scanner file = new Scanner(new File("training_set_tweets.txt"));
-        int temp=1;
+        int temp=1;           
+            
+        
         try {
-            while(temp!=linhadesejada){
-                if(!file.hasNext()){  //CASO NÃO HAJA PROXIMA LINHA
-                    System.out.println("FIM DE LINHA: "+temp);
-                    return false;
-                }
-                String s = file.nextLine();
-                temp++;
-            }
-         String[] split = file.nextLine().split("\t");
-            System.out.println("LINHA: " +temp);
+            Stream<String> lines = Files.lines(Paths.get("training_set_tweets.txt"));
+            String linha = lines.skip(linhadesejada).findFirst().get();
+            String[] split = linha.split("\t");
+            System.out.println("LINHA: " + linhadesejada);
             this.USERID = Long.parseLong(split[0]);
             this.TWEETID = Long.parseLong(split[1]);
             this.TWEET = split[2];
