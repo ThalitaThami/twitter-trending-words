@@ -1,0 +1,23 @@
+MétricasQuicksort Recursivo
+tempo = 0
+
+numero de comparaçoes = 0
+
+numero de copias = 0
+
+
+Quicksort Insercao
+tempo = 0
+
+numero de comparaçoes = 0
+
+numero de copias = 0
+
+
+Quicksort Mediana
+tempo = 0
+
+numero de comparaçoes = 0
+
+numero de copias = 0
+
